@@ -1,0 +1,31 @@
+
+<% if user_signed_in? %>
+<h1>Friends List</h1>
+<table class="table table-bordered table-striped table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Twitter</th>
+    </tr>
+  </thead>
+  <tbody>
+     <% @friends.each do |friend| %>
+     <% if friend.user == current_user %>
+      <%= render friend %>
+      </tr>
+      <% end %>
+      <% end %>
+  </tbody>
+
+</table>
+
+
+
+<%= link_to "New friend", new_friend_path,class:"btn btn-outline-success" %>
+<% else %>
+<h1>Hello World</h1>
+This is my first Rails Knowladge
+
+<% end %>
